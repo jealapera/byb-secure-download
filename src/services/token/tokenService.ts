@@ -10,7 +10,5 @@ export function generateDownloadToken(userId: number, productId: number): string
 }
 
 export function verifyToken(token: string) {
-  console.log(token)
-  console.log(SECRET)
   return jwt.verify(token, SECRET);
 }
