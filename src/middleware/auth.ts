@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verifyToken } from '../services/token/tokenService';
 
-export const verifyDownloadToken = (req: Request, res: Response, next: NextFunction) => {
+export const verifyDownloadToken = (req: Request, res: Response, next: NextFunction): void => {
   const token = req.query.token as string;
 
   if (!token) {
@@ -11,7 +11,6 @@ export const verifyDownloadToken = (req: Request, res: Response, next: NextFunct
 
   try {
     const payload = verifyToken(token);
-    // @ts-ignore – simple workaround for req.body.user
     req.body.user = payload;
     next();
   } catch (error) {
