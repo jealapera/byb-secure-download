@@ -90,11 +90,11 @@ npx ts-node generate-token.ts
 
 This will output a signed JWT token to use for testing.
 
-> ℹ️ **Tip:** By default, the token expires in 5 minutes.  
-> If needed, you can increase the expiry for easier testing by updating this line in `tokenService.ts`:
+> ℹ️ **Tip:** By default, the token expires in 10 minutes (`10m`).  
+> You can adjust this value for easier testing by updating this line in `tokenService.ts`:
 
 ```ts
-{ expiresIn: '1h' } // extends token validity to 1 hour
+{ expiresIn: '10m' } // adjust this to '1h' during testing if needed
 ```
 
 ---
