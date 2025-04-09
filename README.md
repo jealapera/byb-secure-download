@@ -82,25 +82,20 @@ http://localhost:3000
 
 ## 🔐 How to Generate Token for Testing
 
-Create a token to simulate a user who just completed a purchase:
-
-1. Create a new file in the project root named `generate-token.ts`:
-
-```ts
-// generate-token.ts
-import { generateDownloadToken } from './src/services/token/tokenService';
-
-const token = generateDownloadToken(1, 1);
-console.log('Your secure token:\n', token);
-```
-
-2. Run the script using:
+Run the following script to generate a token that simulates a user who just completed a purchase:
 
 ```bash
 npx ts-node generate-token.ts
 ```
 
-3. Copy the token printed in your terminal.
+This will output a signed JWT token to use for testing.
+
+> ℹ️ **Tip:** By default, the token expires in 5 minutes.  
+> If needed, you can increase the expiry for easier testing by updating this line in `tokenService.ts`:
+
+```ts
+{ expiresIn: '1h' } // extends token validity to 1 hour
+```
 
 ---
 
@@ -174,4 +169,4 @@ src/
 
 ## 🧾 Notes
 
-This was built as a focused proof-of-concept in under 1 hour for a coding challenge. It demonstrates core security validation logic in a simple and testable way using TypeScript, Express, and JWTs.
+This was built as a focused proof-of-concept in just over 1 hour for a coding challenge. It demonstrates core security validation logic in a simple and testable way using TypeScript, Express, and JWTs.
